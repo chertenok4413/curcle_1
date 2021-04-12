@@ -57,12 +57,14 @@ let appData = {
     },
     chooseOptExpenses: function() {
         for (let i = 1; i <= 3; i++) {
-            let questionOptExpenses = prompt("Статья необязательных расходов?");
-            appData.optionalExpenses[i] = questionOptExpenses;
-            console.log(appData.optionalExpenses);
+            let opt = prompt("Статья необязательных расходов?");
+            appData.optionalExpenses[i] = opt;
         }
     },
     chooseIncome: function() {
-        
+        let items = prompt('Что принесет дополнительный доход? (Перечислите через запятую)', '');
+        appData.income = items.split(', ');
+        appData.income.push(prompt('Может что-то еще?'))
+        appData.income.sort();
     }
 };
